@@ -1,0 +1,83 @@
+body {
+  max-width: 500px;
+  margin: 0 auto;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.myweather-app {
+  border: 2px solid #dadde1;
+  /* background-color: #d9edfd; */
+  background-color: rgb(255, 255, 255, 0.5);
+  padding: 15px;
+  margin: 20px;
+  border-radius: 10px;
+}
+#video-background {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -100;
+  background-position: center;
+}
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+h2 {
+  text-align: center;
+  font-size: 24px;
+  line-height: 28px;
+  margin-top: 20px;
+  color: #7c7c7c;
+  font-weight: 100;
+}
+.currentDay,
+.currentTime {
+  text-align: center;
+  line-height: 14px;
+  font-weight: 100;
+  font-size: 16px;
+  color: #7c7c7c;
+}
+.search-form {
+  text-align: center;
+}
+.currentImage {
+  display: block;
+  margin: 0 auto;
+}
+.currentTemp {
+  text-align: center;
+  margin-top: -20px;
+}
+a {
+  text-decoration: none;
+}
+.currentNumTemp {
+  font-size: 64px;
+  font-weight: 400;
+  color: black;
+}
+.units {
+  position: relative;
+  top: -30px;
+  left: -10px;
+}
+li {
+  list-style: none;
+}
+.emoji {
+  width: 20px;
+  height: 15px;
+}
+p {
+  text-align: center;
+}
+hr {
+  height: 2px;
+  width: 40em;
+  max-width: 300px;
+  margin: 10px auto;
+}
