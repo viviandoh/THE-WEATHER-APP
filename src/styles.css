@@ -8,7 +8,7 @@ body {
   /* background-color: #d9edfd; */
   background-color: rgb(255, 255, 255, 0.5);
   padding: 15px;
-  margin: 20px;
+  margin: 8px auto 1px;
   border-radius: 10px;
 }
 #video-background {
