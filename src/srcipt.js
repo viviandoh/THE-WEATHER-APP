@@ -45,16 +45,23 @@ search("Mamprobi");
 function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   let setTemp = document.querySelector("#theCurrentTemp");
-  setTemp.innerHTML = `${temperature}`;
   let city = document.querySelector("#search-city");
+  let getHumidity = document.querySelector("#humidity");
+  let getWind = document.querySelector("#wind");
+  let getDescription = document.querySelector("#feels-like");
+  let iconElement = document.querySelector("#icon");
+
+  setTemp.innerHTML = `${temperature}`;
   city.innerHTML = response.data.name;
   // console.log(response);
-  let getHumidity = document.querySelector("#humidity");
   getHumidity.innerHTML = `${response.data.main.humidity}%`;
-  let getWind = document.querySelector("#wind");
   getWind.innerHTML = `${response.data.wind.speed}km/h`;
-  let getDescription = document.querySelector("#feels-like");
   getDescription.innerHTML = response.data.weather[0].description;
+  iconElement.setAttribute(
+    "src",
+    ` http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 let searchCityForm = document.querySelector("#search-form");
