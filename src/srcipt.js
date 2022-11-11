@@ -40,7 +40,7 @@ function handleSubmit(event) {
   }
   search(city);
 }
-search("Mamprobi");
+search("Hohoe");
 
 function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
