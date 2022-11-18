@@ -48,11 +48,13 @@ function showWeather(response) {
   let getWind = document.querySelector("#wind");
   let getDescription = document.querySelector("#feels-like");
   let iconElement = document.querySelector("#icon");
+  let paragraph = document.querySelector("#forecastP");
 
   celciusTemperature = response.data.main.temp;
 
   temperature.innerHTML = Math.round(celciusTemperature);
   city.innerHTML = response.data.name;
+  paragraph.innerHTML = `${response.data.name} in the next 5 days`;
   // console.log(response);
   getHumidity.innerHTML = `${response.data.main.humidity}%`;
   getWind.innerHTML = `${response.data.wind.speed}km/h`;
