@@ -26,6 +26,29 @@ let dateElement = document.querySelector("#date");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  forecastHTML = `<div class= "row">`;
+  let days = ["Sat", "Sun", "Mon", "Tue", "Wed"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+      <img class="emoji" src="images/cloudy1.png" alt="cloud" />
+      <br />
+      <span class="forecast-maximum-temp">29°C </span> <br />
+      <span class="forecast-minimum-temp">19°C </span> <br />
+      <span class="weather-forecast-day">${day}</span>
+    </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function search(city) {
   let apiKey = "c8735bb7e8e2f8d8a38c7501f3cd47d3";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
@@ -107,3 +130,4 @@ celciousLink.addEventListener("click", convertToCelcious);
 let celciusTemperature = null;
 
 search("Hohoe");
+displayForecast();
