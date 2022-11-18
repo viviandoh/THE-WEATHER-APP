@@ -68,6 +68,9 @@ a {
 li {
   list-style: none;
 }
+li:first-letter {
+  text-transform: capitalize;
+}
 .emoji {
   width: 20px;
   height: 15px;
