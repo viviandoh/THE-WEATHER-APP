@@ -40,11 +40,9 @@ function handleSubmit(event) {
   }
   search(city);
 }
-search("Hohoe");
 
 function showWeather(response) {
-  let temperature = Math.round(celciusTemperature);
-  let setTemp = document.querySelector("#theCurrentTemp");
+  let temperature = document.querySelector("#theCurrentTemp");
   let city = document.querySelector("#search-city");
   let getHumidity = document.querySelector("#humidity");
   let getWind = document.querySelector("#wind");
@@ -53,7 +51,7 @@ function showWeather(response) {
 
   celciusTemperature = response.data.main.temp;
 
-  setTemp.innerHTML = `${temperature}`;
+  temperature.innerHTML = Math.round(celciusTemperature);
   city.innerHTML = response.data.name;
   // console.log(response);
   getHumidity.innerHTML = `${response.data.main.humidity}%`;
@@ -89,10 +87,21 @@ function convertToFarenheit(event) {
   temperatureElement.innerHTML = Math.round(Farenheit);
 }
 
+function convertToCelcious(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#theCurrentTemp");
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+}
+
 let button = document.querySelector("#current-location-button");
 button.addEventListener("click", showCurrent);
 
 let farenheitLink = document.querySelector("#farenheit-id");
 farenheitLink.addEventListener("click", convertToFarenheit);
+
+let celciousLink = document.querySelector("#celcious-id");
+celciousLink.addEventListener("click", convertToCelcious);
 //  set global variable
 let celciusTemperature = null;
+
+search("Hohoe");
