@@ -43,13 +43,15 @@ function handleSubmit(event) {
 search("Hohoe");
 
 function showWeather(response) {
-  let temperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(celciusTemperature);
   let setTemp = document.querySelector("#theCurrentTemp");
   let city = document.querySelector("#search-city");
   let getHumidity = document.querySelector("#humidity");
   let getWind = document.querySelector("#wind");
   let getDescription = document.querySelector("#feels-like");
   let iconElement = document.querySelector("#icon");
+
+  celciusTemperature = response.data.main.temp;
 
   setTemp.innerHTML = `${temperature}`;
   city.innerHTML = response.data.name;
@@ -80,6 +82,17 @@ function showCurrent(event) {
   navigator.geolocation.getCurrentPosition(showCurrentTemp);
   event.preventDefault();
 }
+function convertToFarenheit(event) {
+  event.preventDefault();
+  let Farenheit = (celciusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#theCurrentTemp");
+  temperatureElement.innerHTML = Math.round(Farenheit);
+}
 
 let button = document.querySelector("#current-location-button");
 button.addEventListener("click", showCurrent);
+
+let farenheitLink = document.querySelector("#farenheit-id");
+farenheitLink.addEventListener("click", convertToFarenheit);
+
+let celciusTemperature = null;
