@@ -94,5 +94,5 @@ button.addEventListener("click", showCurrent);
 
 let farenheitLink = document.querySelector("#farenheit-id");
 farenheitLink.addEventListener("click", convertToFarenheit);
-
+//  set global variable
 let celciusTemperature = null;
