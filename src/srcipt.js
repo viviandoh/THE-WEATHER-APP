@@ -26,7 +26,8 @@ let dateElement = document.querySelector("#date");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   forecastHTML = `<div class= "row">`;
@@ -64,6 +65,14 @@ function handleSubmit(event) {
   search(city);
 }
 
+function getForecast(coordinates) {
+  // console.log(coordinates);
+  let apiKey = "b40b135798f82a05aed08769f9275f50";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showWeather(response) {
   let temperature = document.querySelector("#theCurrentTemp");
   let city = document.querySelector("#search-city");
@@ -87,6 +96,8 @@ function showWeather(response) {
     ` http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 let searchCityForm = document.querySelector("#search-form");
@@ -130,4 +141,3 @@ celciousLink.addEventListener("click", convertToCelcious);
 let celciusTemperature = null;
 
 search("Hohoe");
-displayForecast();
