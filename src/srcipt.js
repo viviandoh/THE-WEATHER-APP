@@ -132,28 +132,5 @@ function showCurrent(event) {
   navigator.geolocation.getCurrentPosition(showCurrentTemp);
   event.preventDefault();
 }
-function convertToFarenheit(event) {
-  event.preventDefault();
-  let Farenheit = (celciusTemperature * 9) / 5 + 32;
-  let temperatureElement = document.querySelector("#theCurrentTemp");
-  temperatureElement.innerHTML = Math.round(Farenheit);
-}
-
-function convertToCelcious(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#theCurrentTemp");
-  temperatureElement.innerHTML = Math.round(celciusTemperature);
-}
-
-let button = document.querySelector("#current-location-button");
-button.addEventListener("click", showCurrent);
-
-let farenheitLink = document.querySelector("#farenheit-id");
-farenheitLink.addEventListener("click", convertToFarenheit);
-
-let celciousLink = document.querySelector("#celcious-id");
-celciousLink.addEventListener("click", convertToCelcious);
-//  set global variable
-let celciusTemperature = null;
 
 search("Hohoe");
